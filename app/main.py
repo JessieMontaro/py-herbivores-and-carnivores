@@ -12,7 +12,12 @@ class Animal:
         self.hidden = False
 
     def __repr__(self) -> str:
-        return f"{{Name: {self.name}, Health: {self.health}, Hidden: {self.hidden}}}"
+        represent = (
+            f"{{Name: {self.name}, "
+            f"Health: {self.health}, "
+            f"Hidden: {self.hidden}}}"
+        )
+        return represent
 
 
 class Herbivore(Animal):
@@ -23,7 +28,7 @@ class Herbivore(Animal):
 
 class Carnivore(Animal):
 
-    def bite(self, prey) -> None:
+    def bite(self, prey: Animal) -> None:
         if isinstance(prey, Herbivore) and not prey.hidden:
             prey.health -= 50
             print(f"{prey.name} is bitten")
