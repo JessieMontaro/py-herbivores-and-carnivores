@@ -4,10 +4,7 @@ class Animal:
 
     def __init__(self, name: str, *args) -> None:
         self.name = name
-        if args != ():
-            self.health = args[0]
-        else:
-            self.health = 100
+        self.health = 100
         Animal.alive.append(self)
         self.hidden = False
 
@@ -32,5 +29,5 @@ class Carnivore(Animal):
         if isinstance(prey, Herbivore) and not prey.hidden:
             prey.health -= 50
             print(f"{prey.name} is bitten")
-            if prey.health <= 0:
+            if prey.health == 0:
                 Animal.alive.remove(prey)
