@@ -12,11 +12,11 @@ class Animal:
         self.hidden = False
 
     @property
-    def health(self):
+    def health(self) -> None:
         return self._health
 
     @health.setter
-    def health(self, value):
+    def health(self, value: int) -> None:
         self._health = value
         if self._health <= 0 and self in Animal.alive:
             Animal.alive.remove(self)
